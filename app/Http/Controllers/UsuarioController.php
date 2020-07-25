@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Model\Usuario;
 use Illuminate\Http\Request;
+use App\Repositories\UsuarioRepository;
 
 class UsuarioController extends Controller
 {
+
+    protected $usuario;
+
+    /**
+     * UsuarioController constructor.
+     *
+     * @param UsuarioRepository $post
+     */
+    public function __construct(UsuarioRepository $usuario)
+    {
+        $this->usuario = $usuario;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +29,7 @@ class UsuarioController extends Controller
     public function index()
     {
         //
+        return response()->json('index');
     }
 
     /**

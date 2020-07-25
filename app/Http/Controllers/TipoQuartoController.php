@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Model\TipoQuarto;
 use Illuminate\Http\Request;
+use App\Repositories\TipoQuartoRepository;
 
 class TipoQuartoController extends Controller
 {
+
+    protected $tipoQuarto;
+
+    /**
+     * TipoQuartoController constructor.
+     *
+     * @param TipoQuartoRepository $post
+     */
+    public function __construct(TipoQuartoRepository $tipoQuarto)
+    {
+        $this->tipoQuarto = $tipoQuarto;
+    }
+
     /**
      * Display a listing of the resource.
      *
