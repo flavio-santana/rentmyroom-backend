@@ -10,7 +10,7 @@ interface UsuarioRepositoryInterface
      *
      * @param int
      */
-    public function get($usuario_id);
+    public function get($id);
 
     /**
      * Get's todos os usuários
@@ -24,7 +24,7 @@ interface UsuarioRepositoryInterface
      *
      * @param int
      */
-    public function delete($usuario_id);
+    public function delete($id);
 
     /**
      * Updates um usuário
@@ -32,5 +32,5 @@ interface UsuarioRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($usuario_id, array $usuario_data);
+    public function update($id, array $data);
 }

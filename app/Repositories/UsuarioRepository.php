@@ -12,9 +12,9 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      * @param int
      * @return collection
      */
-    public function get($usuario_id)
+    public function get($id)
     {
-        return Usuario::find($usuario_id);
+        return Usuario::find($id);
     }
 
     /**
@@ -32,9 +32,9 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      *
      * @param int
      */
-    public function delete($usuario_id)
+    public function delete($id)
     {
-        Usuario::destroy($usuario_id);
+        Usuario::destroy($id);
     }
 
     /**
@@ -43,8 +43,8 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($usuario_id, array $usuario_data)
+    public function update($id, array $data)
     {
-        Usuario::find($usuario_id)->update($usuario_data);
+        Usuario::find($id)->update($data);
     }
-}
+}   
