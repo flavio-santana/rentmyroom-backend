@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class BackendServiceProvider extends ServiceProvider
 {
-
+/*
     public function register()
     {
         $this->app->bind(
@@ -54,4 +54,5 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\AnuncioRepository'
         );
     }
+ */   
 }
