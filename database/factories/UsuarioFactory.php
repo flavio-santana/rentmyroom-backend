@@ -8,5 +8,19 @@ use Faker\Generator as Faker;
 $factory->define(Usuario::class, function (Faker $faker) {
     return [
         //
+        'nome' => $faker->name, 
+
+        'dataNascimento' => $faker->date($format = 'Y-m-d', $max = 'now'),
+
+        'cpf' => $faker->numerify('###########'),
+        
+        'telefone' => $faker->numerify('(##)#####-####'), // 'Hello 609'
+
+        'email' => $faker->freeEmail,
+
+        'senha' => $faker->numerify('######'),
+
+        'publicado' => $faker->randomElement($array = array ('Sim','Nao')) // 'b'
+
     ];
 });
