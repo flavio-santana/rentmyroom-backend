@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Model\Usuario;
 use Illuminate\Http\Request;
 use App\Repositories\UsuarioRepository;
+use App\Http\Resources\Usuario\UsuarioResource;
+use App\Http\Resources\Usuario\UsuarioCollection; 
 
 class UsuarioController extends Controller
 {
@@ -29,7 +31,7 @@ class UsuarioController extends Controller
     public function index()
     {
         //
-        return response()->json('index');
+        return UsuarioCollection::collection($this->usuario->all());
     }
 
     /**
@@ -62,6 +64,7 @@ class UsuarioController extends Controller
     public function show(Usuario $usuario)
     {
         //
+        return new UsuarioResource($this->usuario->get($usuario->id));
     }
 
     /**
