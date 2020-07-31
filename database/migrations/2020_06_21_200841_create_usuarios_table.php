@@ -19,6 +19,8 @@ class CreateUsuariosTable extends Migration
             
             $table->string('nome',60);
 
+            $table->string('genero',1);
+
             $table->string('dataNascimento',10);
 
             $table->string('cpf',11);

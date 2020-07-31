@@ -10,6 +10,8 @@ $factory->define(Usuario::class, function (Faker $faker) {
         //
         'nome' => $faker->name, 
 
+        'genero' => $faker->randomElement($array = array ('F','M')),
+        
         'dataNascimento' => $faker->date($format = 'Y-m-d', $max = 'now'),
 
         'cpf' => $faker->numerify('###########'),
@@ -20,7 +22,7 @@ $factory->define(Usuario::class, function (Faker $faker) {
 
         'senha' => $faker->numerify('######'),
 
-        'publicado' => $faker->randomElement($array = array ('Sim','Nao')) // 'b'
+        'publicado' => $faker->randomElement($array = array ('Sim','Nao'))
 
     ];
 });

@@ -25,7 +25,7 @@ class CreateAnunciosTable extends Migration
             ->foreign('tipoQuarto_id')->references('id')
             ->on('tipo_quartos')->onUpdate('cascade');
 
-            $table->string('titulo',100);
+            $table->string('titulo',120);
             
             $table->string('descricao',350);
 
