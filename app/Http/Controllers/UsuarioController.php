@@ -8,6 +8,9 @@ use App\Repositories\UsuarioRepository;
 use App\Http\Resources\Usuario\UsuarioResource;
 use App\Http\Resources\Usuario\UsuarioCollection; 
 
+/**
+ * UsuarioController
+ */
 class UsuarioController extends Controller
 {
 

@@ -8,6 +8,9 @@ use App\Model\TipoQuarto;
 use App\Model\TipoImovel;
 use App\Model\Anuncio;
 
+/**
+ * DatabaseSeeder
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
