@@ -2,11 +2,21 @@
 
 namespace App\Exceptions;
 
+use App\Exceptions\ExceptionTrait; 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
+//use Illuminate\Database\Eloquent\ModelNotFoundException;
+//use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+//use Symfony\Component\HttpFoundation\Response;
+//use Symfony\Component\Routing\Exception\RouteNotFoundException;
+//use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class Handler extends ExceptionHandler
 {
+
+    use ExceptionTrait; 
+
     /**
      * A list of the exception types that are not reported.
      *
@@ -50,6 +60,20 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+        /**
+         * Para validar os erros chamda o endpoint através do navegador,
+         * desabilitar a validação if($request->expectsJson()) 
+         */
+        if($request->expectsJson()){
+
+            return $this->apiException($request, $exception); 
+
+        }
+
+        //
+        return $this->apiException($request, $exception);
+
         return parent::render($request, $exception);
     }
 }
