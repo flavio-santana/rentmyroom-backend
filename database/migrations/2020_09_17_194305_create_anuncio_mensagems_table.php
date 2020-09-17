@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnuncioComodidadesTable extends Migration
+class CreateAnuncioMensagemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,24 @@ class CreateAnuncioComodidadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('anuncio_comodidades', function (Blueprint $table) {
-            
+        Schema::create('anuncio_mensagems', function (Blueprint $table) {
+           
             $table->increments('id');
 
             $table->integer('anuncio_id')->unsigned()->index()
             ->foreign('anuncio_id')->references('id')
             ->on('anuncios')->onUpdate('cascade');
 
-            $table->integer('comodidade_id')->unsigned()->index()
-            ->foreign('comodidade_id')->references('id')
-            ->on('comodidades')->onUpdate('cascade');
+            $table->integer('usuario_id')->unsigned()->index()
+            ->foreign('usuario_id')->references('id')
+            ->on('usuarios')->onUpdate('cascade');      
 
-            $table->enum('publicado', ['Nao', 'Sim'])->default('Sim');
+            $table->string('mensagem',350);
+
+            $table->enum('lida', ['Nao', 'Sim'])->default('Nao');
 
             $table->timestamps();
+
         });
     }
 
@@ -38,6 +41,6 @@ class CreateAnuncioComodidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anuncio_comodidades');
+        Schema::dropIfExists('anuncio_mensagems');
     }
 }
