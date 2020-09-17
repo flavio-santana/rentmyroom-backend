@@ -34,7 +34,21 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      */
     public function delete($id)
     {
-        Usuario::destroy($id);
+        $resposta=Usuario::destroy($id); 
+
+        if ($resposta){
+            $data=[
+                'status'=>'1',
+                'msg'=>'success'
+            ];
+        }else{
+            $data=[
+                'status'=>'0',
+                'msg'=>'fail'
+            ];
+        } 
+        
+        return $data;
     }
 
     /**
@@ -43,8 +57,39 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($id, array $data)
+    public function update($id, $json)
     {
-        Usuario::find($id)->update($data);
+        // json to array
+        $data = [
+            'nome' => $json->{'nome'},
+
+            'dataNascimento ' => $json->{'dataNascimento'},
+            
+            'cpf' => $json->{'cpf'},
+            
+            'email' => $json->{'email'},
+            
+            'telefone' => $json->{'telefone'},
+            
+            'genero' => $json->{'genero'},
+
+        ];
+        
+        //
+        $resposta = Usuario::find($id)->update($data);
+
+        if ($resposta){
+            $data=[
+                'status'=>'1',
+                'msg'=>'success'
+            ];
+        }else{
+            $data=[
+                'status'=>'0',
+                'msg'=>'fail'
+            ];
+        } 
+        
+        return $data;
     }
 }   

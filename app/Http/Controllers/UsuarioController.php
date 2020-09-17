@@ -90,7 +90,13 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
+
+        #dd($request->all());
+
+        #dd($usuario->id);
+
         //
+        return response()->json($this->usuario->update($usuario->id, $request)); 
     }
 
     /**
@@ -102,5 +108,8 @@ class UsuarioController extends Controller
     public function destroy(Usuario $usuario)
     {
         //
+        $data = $this->usuario->delete($usuario->id); 
+        
+        return response()->json($data);
     }
 }

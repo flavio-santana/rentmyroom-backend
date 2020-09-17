@@ -20,13 +20,13 @@ class UsuarioResource extends JsonResource
             'nome'           => $this->nome,
             'dataNascimento' => $this->dataNascimento,
             'cpf'            => $this->cpf,
-            'telefone'       => $this->telefone,
+            'genero'         => $this->genero,
             'telefone'       => $this->telefone,
             'email'          => $this->email,
-            'senha'          => $this->senha,
+            #'senha'          => $this->senha,
             'publicado'      => $this->publicado,
-            'created_at'     => $this->created_at,
-            'updated_at'     => $this->updated_at,
+            #'created_at'     => $this->created_at,
+            #'updated_at'     => $this->updated_at,
 
             'ref' => [
                 'href' => route('usuarios.index'),
