@@ -21,8 +21,8 @@ class CreateAnuncioRegrasTable extends Migration
                   ->foreign('anuncio_id')->references('id')
                   ->on('anuncios')->onUpdate('cascade');
 
-            $table->integer('regras_id')->unsigned()->index()
-            ->foreign('regras_id')->references('id')
+            $table->integer('regra_id')->unsigned()->index()
+            ->foreign('regra_id')->references('id')
             ->on('regras')->onUpdate('cascade');
 
             $table->enum('publicado', ['Nao', 'Sim'])->default('Sim');

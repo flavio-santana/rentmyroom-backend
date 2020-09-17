@@ -4,9 +4,33 @@ namespace App\Http\Controllers;
 
 use App\Model\Anuncio;
 use Illuminate\Http\Request;
+use App\Repositories\AnuncioRepository;
+use App\Http\Resources\Anuncio\AnuncioResource;
+use App\Http\Resources\Anuncio\AnuncioCollection;
+use App\Http\Resources\Comodidade\ComodidadeResource;
+use App\Http\Resources\Comodidade\ComodidadeCollection;
+use App\Http\Resources\Regra\RegraResource;
+use App\Http\Resources\Regra\RegraCollection;
 
+
+/**
+ * AnuncioController
+ */
 class AnuncioController extends Controller
 {
+
+    protected $anuncio;
+
+    /**
+     * UsuarioController constructor.
+     *
+     * @param UsuarioRepository $post
+     */
+    public function __construct(AnuncioRepository $anuncio)
+    {
+        $this->anuncio = $anuncio;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +39,7 @@ class AnuncioController extends Controller
     public function index()
     {
         //
+        return AnuncioCollection::collection($this->anuncio->all());
     }
 
     /**
@@ -46,7 +71,9 @@ class AnuncioController extends Controller
      */
     public function show(Anuncio $anuncio)
     {
+        #dd($anuncio->id);
         //
+        return new AnuncioResource($this->anuncio->get($anuncio->id));
     }
 
     /**
@@ -81,5 +108,42 @@ class AnuncioController extends Controller
     public function destroy(Anuncio $anuncio)
     {
         //
+    }
+    
+    /**
+     * anunciosPublicados
+     *
+     * @return void
+     */
+    public function anuncioPublicado(string $opcao)
+    {
+        #dd($opcao);
+        
+        //
+        return AnuncioCollection::collection($this->anuncio->anuncios($opcao));
+    }
+    
+    /**
+     * anuncioComodidade
+     *
+     * @return void
+     */
+    public function anuncioComodidade(Anuncio $anuncio)
+    {
+    
+       // 
+       return ComodidadeCollection::collection($this->anuncio->comodidades($anuncio->id));
+    }
+
+    /**
+     * anuncioRegra
+     *
+     * @return void
+     */
+    public function anuncioRegra(Anuncio $anuncio)
+    {
+        
+        //
+        return RegraCollection::collection($this->anuncio->regras($anuncio->id));
     }
 }

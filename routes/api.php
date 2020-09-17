@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/anuncios','AnuncioController');
+//
+Route::get('/anuncios/publicados/{opcao}','AnuncioController@anuncioPublicado')->name('anuncios.publicados');
+//
+Route::get('/anuncios/{anuncio}/comodidades','AnuncioController@anuncioComodidade')->name('anuncios.comodidades');
+//
+Route::get('/anuncios/{anuncio}/regras','AnuncioController@anuncioRegra')->name('anuncios.regras');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/comodidades','ComodidadeController');

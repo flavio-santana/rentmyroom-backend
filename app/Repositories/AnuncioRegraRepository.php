@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Model\AnuncioRegra;
+use App\Model\Regra;
 
 class AnuncioRegraRepository implements AnuncioRegraRepositoryInterface
 {
@@ -47,4 +48,5 @@ class AnuncioRegraRepository implements AnuncioRegraRepositoryInterface
     {
         AnuncioRegra::find($anuncioRegra_id)->update($data);
     }
+
 }
