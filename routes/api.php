@@ -14,6 +14,7 @@ Route::get('/anuncios/{anuncio}/regras','AnuncioController@anuncioRegra')->name(
 //
 Route::get('/anuncios/{anuncio}/mensagens','AnuncioController@anuncioMensagem')->name('anuncios.mensagens');
 
+
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/comodidades','ComodidadeController');
 
@@ -33,3 +34,6 @@ Route::apiResource('/tiposquartos','TipoQuartoController');
 Route::apiResource('/usuarios','UsuarioController');
 //Retorno os anúncios de um usuário
 Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->name('usuarios.anuncios');
+
+// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+Route::apiResource('/anuncios-comodidades ','AnuncioComodidadeController');
