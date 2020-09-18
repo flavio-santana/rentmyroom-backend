@@ -4,6 +4,9 @@ namespace App\Repositories;
 
 use App\Model\Imovel;
 
+/**
+ * ImovelRepository
+ */
 class ImovelRepository implements ImovelRepositoryInterface
 {
     /**

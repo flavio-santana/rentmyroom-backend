@@ -3,17 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/anuncios','AnuncioController');
 //
@@ -42,3 +31,5 @@ Route::apiResource('/tiposquartos','TipoQuartoController');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/usuarios','UsuarioController');
+//
+Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->name('usuarios.anuncios');

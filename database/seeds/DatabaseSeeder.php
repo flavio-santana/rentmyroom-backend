@@ -26,24 +26,24 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         
-        factory(Usuario::class,500)->create(); 
+        factory(Usuario::class,9)->create(); 
         
         factory(TipoQuarto::class,3)->create();
         
         factory(TipoImovel::class,3)->create();
 
-        factory(Imovel::class,50)->create();
+        factory(Imovel::class,20)->create();
 
-        factory(Anuncio::class,50)->create();
+        factory(Anuncio::class,20)->create();
 
         factory(Comodidade::class,9)->create();
 
         factory(Regra::class,9)->create();
         
-        factory(AnuncioComodidade::class,50)->create();
+        factory(AnuncioComodidade::class,20)->create();
 
-        factory(AnuncioRegra::class,50)->create();
+        factory(AnuncioRegra::class,20)->create();
 
-        factory(AnuncioMensagem::class,100)->create();
+        factory(AnuncioMensagem::class,50)->create();
     }
 }

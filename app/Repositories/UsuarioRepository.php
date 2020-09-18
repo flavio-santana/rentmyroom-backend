@@ -4,6 +4,9 @@ namespace App\Repositories;
 
 use App\Model\Usuario;
 
+/**
+ * UsuarioRepository
+ */
 class UsuarioRepository implements UsuarioRepositoryInterface
 {
     /**
@@ -91,5 +94,23 @@ class UsuarioRepository implements UsuarioRepositoryInterface
         } 
         
         return $data;
+    }
+    
+    /**
+     * anuncio
+     *
+     * @param  mixed $usuario_id
+     * @return void
+     */
+    public function anuncio($usuario_id)
+    {
+        return Usuario::where('usuarios.id',$usuario_id)
+        ->select(['anuncios.titulo', 
+        'anuncios.descricao', 
+        'anuncios.publicado'])
+        ->join('imovels','usuarios.id','=','imovels.usuario_id')
+        ->join('anuncios','imovels.id','=','anuncios.id')
+        //->orderBy('comodidades.descricao')
+        ->get();
     }
 }   

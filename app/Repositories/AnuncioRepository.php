@@ -5,6 +5,9 @@ namespace App\Repositories;
 use App\Model\Anuncio;
 use App\Model\AnuncioRegra;
 
+/**
+ * AnuncioRepository
+ */
 class AnuncioRepository implements AnuncioRepositoryInterface
 {
     /**

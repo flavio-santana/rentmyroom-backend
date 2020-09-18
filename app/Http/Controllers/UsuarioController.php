@@ -107,4 +107,16 @@ class UsuarioController extends Controller
         
         return response()->json($data);
     }
+    
+    /**
+     * usuarioAnuncio
+     *
+     * @param  mixed $usuario
+     * @return void
+     */
+    public function usuarioAnuncio(Usuario $usuario)
+    {
+        //
+        return response()->json($this->usuario->anuncio($usuario->id));
+    }
 }
