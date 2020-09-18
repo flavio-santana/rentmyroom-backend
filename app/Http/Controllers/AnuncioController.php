@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use App\Repositories\AnuncioRepository;
 use App\Http\Resources\Anuncio\AnuncioResource;
 use App\Http\Resources\Anuncio\AnuncioCollection;
-use App\Http\Resources\Comodidade\ComodidadeResource;
+#use App\Http\Resources\Comodidade\ComodidadeResource;
 use App\Http\Resources\Comodidade\ComodidadeCollection;
-use App\Http\Resources\Regra\RegraResource;
+#use App\Http\Resources\Regra\RegraResource;
 use App\Http\Resources\Regra\RegraCollection;
+use App\Http\Resources\AnuncioMensagem\AnuncioMensagemCollection;
 
 
 /**
@@ -145,5 +146,16 @@ class AnuncioController extends Controller
         
         //
         return RegraCollection::collection($this->anuncio->regras($anuncio->id));
+    }
+    
+    /**
+     * anuncioMensagem
+     *
+     * @param  mixed $anuncio
+     * @return void
+     */
+    public function anuncioMensagem(Anuncio $anuncio)
+    {
+        return AnuncioCollection::collection($anuncio->mensagens);
     }
 }

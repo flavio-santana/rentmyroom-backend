@@ -22,6 +22,8 @@ Route::get('/anuncios/publicados/{opcao}','AnuncioController@anuncioPublicado')-
 Route::get('/anuncios/{anuncio}/comodidades','AnuncioController@anuncioComodidade')->name('anuncios.comodidades');
 //
 Route::get('/anuncios/{anuncio}/regras','AnuncioController@anuncioRegra')->name('anuncios.regras');
+//
+Route::get('/anuncios/{anuncio}/mensagens','AnuncioController@anuncioMensagem')->name('anuncios.mensagens');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/comodidades','ComodidadeController');

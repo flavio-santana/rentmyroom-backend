@@ -11,6 +11,7 @@ use App\Model\Comodidade;
 use App\Model\Regra;
 use App\Model\AnuncioComodidade;
 use App\Model\AnuncioRegra;
+use App\Model\AnuncioMensagem;
 
 /**
  * DatabaseSeeder
@@ -42,5 +43,7 @@ class DatabaseSeeder extends Seeder
         factory(AnuncioComodidade::class,50)->create();
 
         factory(AnuncioRegra::class,50)->create();
+
+        factory(AnuncioMensagem::class,100)->create();
     }
 }

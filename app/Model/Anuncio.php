@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\AnuncioComodidade; 
 use App\Model\AnuncioRegra; 
+use App\Model\AnuncioMensagem; 
 
 
 /**
@@ -34,6 +35,19 @@ class Anuncio extends Model
      */
     public function regras()
     {
+        
         return $this->hasMany(AnuncioRegra::class);
+    }
+
+    
+    /**
+     * mensagens
+     *
+     * @return void
+     */
+    public function mensagens()
+    {
+
+        return $this->hasMany(AnuncioMensagem::class);
     }
 }
