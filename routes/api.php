@@ -17,6 +17,9 @@ Route::get('/anuncios/{anuncio}/mensagens','AnuncioController@anuncioMensagem')-
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/comodidades','ComodidadeController');
+//
+Route::get('/comodidades-oferecidas','ComodidadeController@comodidadeOferecida')->name('comodidades.oferecidas');
+
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/imoveis','ImovelController');
@@ -36,4 +39,4 @@ Route::apiResource('/usuarios','UsuarioController');
 Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->name('usuarios.anuncios');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/anuncios-comodidades ','AnuncioComodidadeController');
+#Route::apiResource('/anuncios-comodidades ','AnuncioComodidadeController');

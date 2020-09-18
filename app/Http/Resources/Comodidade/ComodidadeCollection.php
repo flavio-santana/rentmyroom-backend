@@ -15,12 +15,12 @@ class ComodidadeCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            #'id'         => $this->id,
+            'id'         => $this->id,
             'descricao ' => $this->descricao,
             'publicado'  => $this->publicado,
             
             'ref' => [
-                #'href' => route('anuncios.index'),
+                'href' => route('comodidades.show',$this->id),
             ]   
         ];
     }

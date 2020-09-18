@@ -47,4 +47,23 @@ class ComodidadeRepository implements ComodidadeRepositoryInterface
     {
         Comodidade::find($comodidade_id)->update($data);
     }
+
+    
+    /**
+     * comodidadeOferecida
+     *
+     * @return void
+     */
+    public function comodidadeOferecida()
+    {
+        return Comodidade::where('comodidades.publicado','=','Sim')
+        ->select('comodidades.id','comodidades.descricao','comodidades.publicado')
+        ->join('anuncio_comodidades','comodidades.id','=','anuncio_comodidades.anuncio_id')
+        ->join('anuncios','anuncios.id','=','anuncio_comodidades.anuncio_id')
+        ->where('comodidades.publicado','=','Sim')
+        ->where('anuncio_comodidades.publicado','=','Sim')
+        ->whereDate('anuncios.dataDisponivel','<=',date('Y-m-d'))
+        ->orderBy('comodidades.descricao')
+        ->get();
+    }
 }

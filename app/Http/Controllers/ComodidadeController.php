@@ -4,9 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Model\Comodidade;
 use Illuminate\Http\Request;
+use App\Repositories\ComodidadeRepository;
+use App\Http\Resources\Comodidade\ComodidadeResource;
+use App\Http\Resources\Comodidade\ComodidadeCollection;
 
 class ComodidadeController extends Controller
 {
+
+    protected $comodidade;
+
+    /**
+     * UsuarioController constructor.
+     *
+     * @param UsuarioRepository $post
+     */
+    public function __construct(ComodidadeRepository $comodidade)
+    {
+        $this->comodidade = $comodidade;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +31,7 @@ class ComodidadeController extends Controller
     public function index()
     {
         //
+        dd('index');
     }
 
     /**
@@ -81,5 +98,16 @@ class ComodidadeController extends Controller
     public function destroy(Comodidade $comodidade)
     {
         //
+    }
+    
+    /**
+     * comodidadeOferecida
+     *
+     * @return void
+     */
+    public function comodidadeOferecida()
+    {
+        //
+        return ComodidadeCollection::collection($this->comodidade->comodidadeOferecida());
     }
 }
