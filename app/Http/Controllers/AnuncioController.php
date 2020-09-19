@@ -72,9 +72,9 @@ class AnuncioController extends Controller
      */
     public function show(Anuncio $anuncio)
     {
-        #dd($anuncio->id);
         //
-        return new AnuncioResource($this->anuncio->get($anuncio->id));
+        //return response()->json(['success' => '1','data' =>$this->anuncio->get($anuncio->id)]);
+        return response()->json(['data' =>$this->anuncio->get($anuncio->id)]);
     }
 
     /**
@@ -118,7 +118,6 @@ class AnuncioController extends Controller
      */
     public function anuncioPublicado(string $opcao)
     {
-        #dd($opcao);
         
         //
         return AnuncioCollection::collection($this->anuncio->anuncios($opcao));

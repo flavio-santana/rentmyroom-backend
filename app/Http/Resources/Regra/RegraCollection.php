@@ -20,7 +20,7 @@ class RegraCollection extends JsonResource
             'publicado' => $this->publicado,
             
             'ref' => [
-                #'href' => route('anuncios.index'),
+                'href' => route('regras.index',$this->id),
             ]   
         ];
     }

@@ -18,7 +18,17 @@ class AnuncioRepository implements AnuncioRepositoryInterface
      */
     public function get($anuncio_id)
     {
-        return Anuncio::find($anuncio_id);
+        return Anuncio::where('anuncios.id',$anuncio_id)
+        ->select('anuncios.id',
+        'anuncios.titulo',
+        'anuncios.descricao as descricaoAnuncio',
+        'anuncios.valorAluguel',
+        'imovels.bairro',
+        'imovels.cidade',
+        'imovels.uf')
+        ->join('imovels','anuncios.imovel_id','=','imovels.id')
+        ->join('tipo_quartos','anuncios.TipoQuarto_id','=','tipo_quartos.id')
+        ->get();
     }
 
     /**
@@ -59,9 +69,15 @@ class AnuncioRepository implements AnuncioRepositoryInterface
      */
     public function anuncios(String $opcao)
     {
-        return Anuncio::where('publicado', '=', $opcao)
-        #->whereDate('data_inicio', '<=', '2020-08-12')
-        #->whereDate('data_termino', '>=', '2020-08-12')
+
+        return Anuncio::where('anuncios.publicado', '=', $opcao)
+        ->select('anuncios.id',
+        'anuncios.titulo',
+        'anuncios.descricao',
+        'anuncios.valorAluguel',
+        'imovels.bairro')
+        ->join('imovels','anuncios.imovel_id','=','imovels.id')
+        ->whereDate('anuncios.dataDisponivel','<=',date('Y-m-d'))
         ->get();
     }
     

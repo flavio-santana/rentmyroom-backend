@@ -14,15 +14,18 @@ class AnuncioResource extends JsonResource
      */
     public function toArray($request)
     {
+
+        //dd($request);
+
         return [
-            'id'             => $this->id,
-            'imovel_id '     => $this->imovel_id ,
-            'tipoQuarto_id'  => $this->tipoQuarto_id,
-            'titulo'         => $this->titulo,
-            'descricao'      => $this->descricao,
-            'valorAluguel'   => $this->valorAluguel,
-            'dataDisponivel' => $this->dataDisponivel,
-            'publicado'      => $this->publicado,
+            //'id'             => $this->id,
+            //'imovel_id '     => $this->imovel_id ,
+            //'tipoQuarto_id'  => $this->tipoQuarto_id,
+            //'titulo'         => $this->titulo,
+            //'descricao'      => $this->descricao,
+            //'valorAluguel'   => $this->valorAluguel,
+            //'dataDisponivel' => $this->dataDisponivel,
+            //'publicado'      => $this->publicado,
             
             'ref' => [
                 'href' => route('anuncios.index'),
