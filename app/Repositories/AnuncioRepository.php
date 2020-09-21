@@ -67,7 +67,7 @@ class AnuncioRepository implements AnuncioRepositoryInterface
      *
      * @return void
      */
-    public function anuncios(String $opcao)
+    public function anuncios(string $opcao)
     {
 
         return Anuncio::where('anuncios.publicado', '=', $opcao)
@@ -117,5 +117,32 @@ class AnuncioRepository implements AnuncioRepositoryInterface
         ->orderBy('comodidades.descricao')
         ->get();
 
+    }
+
+        
+    /**
+     * pesquisa
+     *
+     * @param  mixed $cidade
+     * @return void
+     */
+    public function pesquisa(string $cidade)
+    {
+
+        $cidade = str_replace('-',' ',$cidade);
+
+        #dd($cidade);
+
+        return Anuncio::select('anuncios.id',
+        'anuncios.titulo', 
+        'anuncios.descricao', 
+        'anuncios.valorAluguel',
+        'imovels.bairro',
+        'imovels.cidade')
+        ->join('imovels','anuncios.imovel_id','=','imovels.id')
+        ->where('imovels.cidade','like',$cidade)
+        ->whereDate('anuncios.dataDisponivel','<=',date('Y-m-d'))
+        ->where('anuncios.publicado', '=', 'Nao')
+        ->get();
     }
 }

@@ -23,6 +23,7 @@ class AnuncioCollection extends JsonResource
             'descricao'      => $this->descricao,
             'valorAluguel'   => $this->valorAluguel,
             'bairro'         => $this->bairro,
+            'cidade'         => $this->cidade,
             
             'ref' => [
                 'href' => route('anuncios.show',$this->id),

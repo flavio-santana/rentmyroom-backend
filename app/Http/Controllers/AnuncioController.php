@@ -166,6 +166,8 @@ class AnuncioController extends Controller
      */
     public function anuncioPesquisa(String $cidade)
     {
-        dd($cidade);
+        #dd($cidade);
+        #return response()->json($this->anuncio->pesquisa($cidade));
+        return AnuncioCollection::collection($this->anuncio->pesquisa($cidade));
     }
 }
