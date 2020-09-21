@@ -157,4 +157,15 @@ class AnuncioController extends Controller
     {
         return AnuncioCollection::collection($anuncio->mensagens);
     }
+    
+    /**
+     * anuncioPesquisa
+     *
+     * @param  mixed $cidade
+     * @return void
+     */
+    public function anuncioPesquisa(String $cidade)
+    {
+        dd($cidade);
+    }
 }
