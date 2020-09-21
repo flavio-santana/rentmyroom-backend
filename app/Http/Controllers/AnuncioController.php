@@ -167,7 +167,13 @@ class AnuncioController extends Controller
     public function anuncioPesquisa(String $cidade)
     {
         #dd($cidade);
-        #return response()->json($this->anuncio->pesquisa($cidade));
-        return AnuncioCollection::collection($this->anuncio->pesquisa($cidade));
+        
+        $dados = $this->anuncio->pesquisa($cidade); 
+
+        if($dados->count() > 0 )
+            return response()->json(['sucess'=>1,'data' =>$dados]);
+        else
+            return response()->json(['error'=>0,'data' =>'Data not found']);                   
+        
     }
 }
