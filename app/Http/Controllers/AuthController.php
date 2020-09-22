@@ -44,6 +44,8 @@ class AuthController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
+        Auth::guard('api')->user();
+
         return $this->createNewToken($token);
     }
 

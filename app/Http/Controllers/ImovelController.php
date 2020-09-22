@@ -5,8 +5,22 @@ namespace App\Http\Controllers;
 use App\Model\Imovel;
 use Illuminate\Http\Request;
 
+/**
+ * ImovelController
+ */
 class ImovelController extends Controller
 {
+
+    /**
+     * UsuarioController constructor.
+     *
+     * @param UsuarioRepository $post
+     */
+    public function __construct()
+    {
+        #$this->middleware('jwt.auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

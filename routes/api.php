@@ -10,16 +10,55 @@ use Illuminate\Support\Facades\Route;
 Route::post('/auth/register','AuthController@register');
 //
 Route::post('/auth/login','AuthController@login');
-//
-Route::get('/auth/user-profile','AuthController@userProfile');
-//
-Route::post('/auth/refresh','AuthController@refresh');
-//
-Route::post('/auth/logout','AuthController@logout');
+
+// Route Group
+Route::group(['middleware' => ['jwt.auth']], function () {
+    
+    //
+    Route::get('/auth/logout','AuthController@logout');
+    //
+    Route::get('/auth/user-profile','AuthController@userProfile');
+    //
+    Route::post('/auth/refresh','AuthController@refresh');
 
 
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/anuncios','AnuncioController');
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/anuncios','AnuncioController');
+
+
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/comodidades','ComodidadeController');
+    //
+    Route::get('/comodidades-oferecidas','ComodidadeController@comodidadeOferecida')->name('comodidades.oferecidas');
+
+
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/usuarios','UsuarioController');
+    //Retorno os anúncios de um usuário
+    Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->name('usuarios.anuncios');
+
+
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/regras','RegraController');
+
+
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/imoveis','ImovelController');
+
+        
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/tiposimoveis','TipoImovelController');
+
+
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/tiposquartos','TipoQuartoController');
+
+
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/imoveis','ImovelController');
+    
+});
+
 //
 Route::get('/anuncios/publicados/{opcao}','AnuncioController@anuncioPublicado')->name('anuncios.publicados');
 //
@@ -33,30 +72,4 @@ Route::get('/anuncios/pesquisas/{cidade}','AnuncioController@anuncioPesquisa')->
 
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/comodidades','ComodidadeController');
-//
-Route::get('/comodidades-oferecidas','ComodidadeController@comodidadeOferecida')->name('comodidades.oferecidas');
-
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/imoveis','ImovelController');
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/regras','RegraController');
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/tiposimoveis','TipoImovelController');
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/tiposquartos','TipoQuartoController');
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/usuarios','UsuarioController');
-//Retorno os anúncios de um usuário
-Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->name('usuarios.anuncios');
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 #Route::apiResource('/anuncios-comodidades ','AnuncioComodidadeController');
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/imoveis','ImovelController');
