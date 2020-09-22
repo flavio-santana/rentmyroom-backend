@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+#http://hub4dev.com.br/2019/08/19/laravel-passaport-criando-uma-api-de-autenticacao-restful/
+
+//
+Route::get('/', 'IndexController@index');
+
+//
+Route::get('/login', 'IndexController@login');

@@ -29,6 +29,7 @@ class AnuncioController extends Controller
      */
     public function __construct(AnuncioRepository $anuncio)
     {
+        //
         $this->anuncio = $anuncio;
     }
 
