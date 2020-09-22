@@ -14,7 +14,7 @@ Route::get('/anuncios/{anuncio}/regras','AnuncioController@anuncioRegra')->name(
 //
 Route::get('/anuncios/{anuncio}/mensagens','AnuncioController@anuncioMensagem')->name('anuncios.mensagens');
 //
-Route::get('/anuncios/pesquisas/{cidade}','AnuncioController@anuncioPesquisa')->name('anuncios.pesquisa');
+Route::get('/anuncios/pesquisas/{cidade}','AnuncioController@anuncioPesquisa')->name('anuncios.pesquisas');
 
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
