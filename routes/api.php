@@ -6,6 +6,18 @@ use Illuminate\Support\Facades\Route;
 #Laravel 7|8 JWT Authentication Tutorial: User Login & Signup API
 #https://www.positronx.io/laravel-jwt-authentication-tutorial-user-login-signup-api/
 
+// Authentication APIs for Login, Register, User Profile, Token Refresh and Logout.
+Route::post('/auth/register','AuthController@register');
+//
+Route::post('/auth/login','AuthController@login');
+//
+Route::get('/auth/user-profile','AuthController@userProfile');
+//
+Route::post('/auth/refresh','AuthController@refresh');
+//
+Route::post('/auth/logout','AuthController@logout');
+
+
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/anuncios','AnuncioController');
 //
@@ -45,3 +57,6 @@ Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->n
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 #Route::apiResource('/anuncios-comodidades ','AnuncioComodidadeController');
+
+// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+Route::apiResource('/imoveis','ImovelController');
