@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+#Laravel 7|8 JWT Authentication Tutorial: User Login & Signup API
+#https://www.positronx.io/laravel-jwt-authentication-tutorial-user-login-signup-api/
+
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/anuncios','AnuncioController');
 //
