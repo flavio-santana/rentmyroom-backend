@@ -13,7 +13,7 @@ class CreateTipoQuartosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_quartos', function (Blueprint $table) {
+        Schema::connection('mysql_imovel')->create('tipo_quartos', function (Blueprint $table) {
 
             $table->increments('id');
 
@@ -33,6 +33,6 @@ class CreateTipoQuartosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_quartos');
+        Schema::connection('mysql_imovel')->dropIfExists('tipo_quartos');
     }
 }
