@@ -4,6 +4,9 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * TipoQuarto
+ */
 class TipoQuarto extends Model
 {    
     /**
@@ -11,5 +14,5 @@ class TipoQuarto extends Model
      *
      * @var string
      */
-    protected $connection = 'mysql_imovel';
+    protected $connection = 'mysql_anuncio';
 }
