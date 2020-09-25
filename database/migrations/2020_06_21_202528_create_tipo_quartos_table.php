@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * CreateTipoQuartosTable
+ */
 class CreateTipoQuartosTable extends Migration
 {
     /**
@@ -13,7 +16,7 @@ class CreateTipoQuartosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_quartos', function (Blueprint $table) {
+        Schema::connection('mysql_anuncio')->create('tipo_quartos', function (Blueprint $table) {
 
             $table->increments('id');
 
@@ -33,6 +36,6 @@ class CreateTipoQuartosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_quartos');
+        Schema::connection('mysql_anuncio')->dropIfExists('tipo_quartos');
     }
 }

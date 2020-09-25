@@ -13,7 +13,7 @@ class CreateTipoImovelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_imovels', function (Blueprint $table) {
+        Schema::connection('mysql_imovel')->create('tipo_imovels', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -33,6 +33,6 @@ class CreateTipoImovelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_imovels');
+        Schema::connection('mysql_imovel')->dropIfExists('tipo_imovels');
     }
 }

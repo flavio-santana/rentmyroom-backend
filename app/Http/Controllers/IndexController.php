@@ -19,7 +19,14 @@ class IndexController extends Controller
      */
     public function index(Request $request)
     {
-        return view('welcome');
+
+        #session(['key' => 'value']);
+
+        #$value = session('key');
+
+        #print $value;
+
+        #return view('welcome');
     }
     
     /**
@@ -42,15 +49,39 @@ class IndexController extends Controller
         #dd(json_decode($response->getBody(), true));
         
         #
-        #$data = json_decode($response->getBody(), true);
+        $data = json_decode($response->getBody(), true);
         
         #
-        #dd($data['access_token']);    
+        #dd($data['access_token']);   
+        session(['access_token' => $data['access_token']]); 
+
+        $access_token = session('access_token');
+
+        #print $access_token;
 
         //Para chamar os serviços depois da identificação, basta utilizar o exemplo abaixo
         #http://dev.backend.com.br/api/usuarios?token=
 
         #$response = Http::get('http://127.0.0.1:8000/api/usuarios/'.$usuario);
+
+        return redirect('/anuncios');
+
+    }
+    
+    /**
+     * anuncio
+     *
+     * @return void
+     */
+    public function anuncio()
+    {
+        $access_token = session('access_token');
+
+        $response = Http::get('http://dev.backend.com.br/api/anuncios?token='.$access_token);
+
+        $data = $response->json();
+
+        dd($data);
 
     }
 }

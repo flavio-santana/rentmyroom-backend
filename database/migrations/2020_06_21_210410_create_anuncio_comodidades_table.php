@@ -13,7 +13,7 @@ class CreateAnuncioComodidadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('anuncio_comodidades', function (Blueprint $table) {
+        Schema::connection('mysql_anuncio')->create('anuncio_comodidades', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -38,6 +38,6 @@ class CreateAnuncioComodidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anuncio_comodidades');
+        Schema::connection('mysql_anuncio')->dropIfExists('anuncio_comodidades');
     }
 }

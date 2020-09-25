@@ -13,7 +13,7 @@ class CreateRegrasTable extends Migration
      */
     public function up()
     {
-        Schema::create('regras', function (Blueprint $table) {
+        Schema::connection('mysql_anuncio')->create('regras', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -33,6 +33,6 @@ class CreateRegrasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regras');
+        Schema::connection('mysql_anuncio')->dropIfExists('regras');
     }
 }

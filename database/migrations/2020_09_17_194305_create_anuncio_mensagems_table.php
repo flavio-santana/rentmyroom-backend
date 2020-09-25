@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * CreateAnuncioMensagemsTable
+ */
 class CreateAnuncioMensagemsTable extends Migration
 {
     /**
@@ -13,7 +16,7 @@ class CreateAnuncioMensagemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('anuncio_mensagems', function (Blueprint $table) {
+        Schema::connection('mysql_anuncio')->create('anuncio_mensagems', function (Blueprint $table) {
            
             $table->increments('id');
 
@@ -41,6 +44,6 @@ class CreateAnuncioMensagemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anuncio_mensagems');
+        Schema::connection('mysql_anuncio')->dropIfExists('anuncio_mensagems');
     }
 }

@@ -10,6 +10,14 @@ use App\Model\Anuncio;
  */
 class AnuncioComodidade extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_anuncio';
+    
     //
     protected $fillable = array(
         'id','anuncio_id','comodidade_id','publicado','created_at','updated_at',

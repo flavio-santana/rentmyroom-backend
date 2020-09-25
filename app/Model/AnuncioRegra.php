@@ -8,6 +8,14 @@ use App\Model\Regra;
 
 class AnuncioRegra extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_anuncio';
+    
     //
     protected $fillable = array(
         'id','anuncio_id','regras_id','publicado','created_at','updated_at',

@@ -20,3 +20,6 @@ Route::get('/', 'IndexController@index');
 
 //
 Route::get('/login', 'IndexController@login');
+
+//
+Route::get('/anuncios', 'IndexController@anuncio');

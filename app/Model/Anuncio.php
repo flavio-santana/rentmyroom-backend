@@ -13,6 +13,14 @@ use App\Model\AnuncioMensagem;
  */
 class Anuncio extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_anuncio';
+    
     //
     protected $fillable = array(
         'id','imovel_id','tipoQuarto_id','titulo','descricao','valorAluguel','dataDisponivel','publicado','created_at','updated_at',
