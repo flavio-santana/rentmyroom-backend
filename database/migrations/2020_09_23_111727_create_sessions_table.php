@@ -14,7 +14,7 @@ class CreateSessionsTable extends Migration
     public function up()
     {
         Schema::connection('mysql_usuario')->create('sessions', function (Blueprint $table) {
-            $table->string('id')->unique();
+            $table->increments('id');
             $table->foreignId('user_id')->nullable();
             $table->string('ip_address', 45)->nullable();
             $table->text('user_agent')->nullable();
