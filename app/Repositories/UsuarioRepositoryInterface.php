@@ -32,5 +32,5 @@ interface UsuarioRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($id, array $data);
+    public function update($id, $json);
 }

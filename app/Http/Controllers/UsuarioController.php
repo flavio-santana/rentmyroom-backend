@@ -55,7 +55,10 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        #dd($request->all());
+
         //
+        return response()->json($this->usuario->save($request));
     }
 
     /**
@@ -118,5 +121,16 @@ class UsuarioController extends Controller
     {
         //
         return response()->json($this->usuario->anuncio($usuario->id));
+    }
+    
+    /**
+     * usuarioPesquisa
+     *
+     * @return void
+     */
+    public function usuarioPesquisa($nome)
+    {
+        #dd($nome);
+        return response()->json($this->usuario->pesquisa($nome));
     }
 }

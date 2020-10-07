@@ -37,6 +37,8 @@ Route::apiResource('/tiposquartos','TipoQuartoController');
 Route::apiResource('/usuarios','UsuarioController');
 //Retorno os anúncios de um usuário
 Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->name('usuarios.anuncios');
+//
+Route::get('/usuarios/pesquisas/{nome}','UsuarioController@usuarioPesquisa');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 #Route::apiResource('/anuncios-comodidades ','AnuncioComodidadeController');

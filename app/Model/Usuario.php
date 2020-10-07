@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
+
+    protected $connection = 'mysql_usuario';
+
     //
     protected $fillable = array(
         'id', 
         'nome', 
+        'genero', 
         'dataNascimento', 
         'cpf', 
         'telefone', 
