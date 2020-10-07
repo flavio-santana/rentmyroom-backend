@@ -168,6 +168,25 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      */
     public function pesquisa($nome)
     {
-        return Usuario::where('nome', 'like', $nome)->get();
+        
+        $conteudo = Usuario::where('nome', 'like', '%' . $nome . '%')->get();
+
+        if($conteudo->count()===0){
+
+            $data=[
+                'status'=>'0',
+                'msg'=>'Não foi localizado nenhum registro!'
+            ];
+
+        }else{
+
+            $data = [
+                'status'=>'1',
+                'data'=> $conteudo
+            ];
+
+        }
+
+        return $data;
     }
 }   

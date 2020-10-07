@@ -12,7 +12,7 @@ Route::post('/auth/register','AuthController@register');
 Route::post('/auth/login','AuthController@login');
 
 // Route Group
-Route::group(['middleware' => ['jwt.auth']], function () {
+#Route::group(['middleware' => ['jwt.auth']], function () {
     
     //
     Route::get('/auth/logout','AuthController@logout');
@@ -46,8 +46,8 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 
     // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
     Route::apiResource('/imoveis','ImovelController');
-
-        
+    
+    
     // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
     Route::apiResource('/tiposimoveis','TipoImovelController');
 
@@ -55,11 +55,11 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
     Route::apiResource('/tiposquartos','TipoQuartoController');
 
-
+    
     // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
     Route::apiResource('/imoveis','ImovelController');
     
-});
+#});
 
 //
 Route::get('/anuncios/publicados/{opcao}','AnuncioController@anuncioPublicado')->name('anuncios.publicados');

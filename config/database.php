@@ -87,11 +87,7 @@ return [
 
         'mysql_usuario' => [
             'driver' => 'mysql',
-<<<<<<< HEAD
             'url' => env('DATABASE_URL'),
-=======
-            'url' => env('DATABASE_URL_USUARIO'),
->>>>>>> desenvolvimento
             'host' => env('DB_HOST_USUARIO', '127.0.0.1'),
             'port' => env('DB_PORT_USUARIO', '3306'),
             'database' => env('DB_DATABASE_USUARIO', 'usuario'),
