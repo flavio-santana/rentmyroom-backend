@@ -30,6 +30,54 @@ class UsuarioRepository implements UsuarioRepositoryInterface
         return Usuario::all();
     }
 
+      /**
+     * save
+     *
+     * @param  mixed $json
+     * @return void
+     */
+    public function save($json)
+    {
+
+        // json to array
+        $data = [
+
+            'nome' => $json->{'nome'},
+
+            'genero' => $json->{'genero'},
+
+            'dataNascimento' => $json->{'dataNascimento'},
+            
+            'cpf' => $json->{'cpf'},
+            
+            'telefone' => $json->{'telefone'},
+
+            'email' => $json->{'email'},
+            
+            'senha' => '123456',
+
+            'publicado' => $json->{'publicado'}
+        ];
+
+        #dd($data);
+
+        $return=Usuario::create($data);
+
+        if ($return){
+            $data=[
+                'status'=>'1',
+                'msg'=>'success'
+            ];
+        }else{
+            $data=[
+                'status'=>'0',
+                'msg'=>'fail'
+            ];
+        } 
+
+        return $data;
+    }
+
     /**
      * Deletes a post.
      *
@@ -69,8 +117,6 @@ class UsuarioRepository implements UsuarioRepositoryInterface
             'dataNascimento ' => $json->{'dataNascimento'},
             
             'cpf' => $json->{'cpf'},
-            
-            'email' => $json->{'email'},
             
             'telefone' => $json->{'telefone'},
             
@@ -112,5 +158,16 @@ class UsuarioRepository implements UsuarioRepositoryInterface
         ->join('anuncios','imovels.id','=','anuncios.id')
         //->orderBy('comodidades.descricao')
         ->get();
+    }
+    
+    /**
+     * pesquisa
+     *
+     * @param  mixed $nome
+     * @return void
+     */
+    public function pesquisa($nome)
+    {
+        return Usuario::where('nome', 'like', $nome)->get();
     }
 }   

@@ -36,6 +36,8 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::apiResource('/usuarios','UsuarioController');
     //Retorno os anúncios de um usuário
     Route::get('/usuarios/{usuario}/anuncios','UsuarioController@usuarioAnuncio')->name('usuarios.anuncios');
+    //
+    Route::get('/usuarios/pesquisas/{nome}','UsuarioController@usuarioPesquisa');
 
 
     // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
@@ -69,7 +71,3 @@ Route::get('/anuncios/{anuncio}/regras','AnuncioController@anuncioRegra')->name(
 Route::get('/anuncios/{anuncio}/mensagens','AnuncioController@anuncioMensagem')->name('anuncios.mensagens');
 //
 Route::get('/anuncios/pesquisas/{cidade}','AnuncioController@anuncioPesquisa')->name('anuncios.pesquisas');
-
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-#Route::apiResource('/anuncios-comodidades ','AnuncioComodidadeController');
